@@ -1,0 +1,17 @@
+# Oh my zsh
+robbyrussell/oh-my-zsh
+
+# Zsh plugins
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-completions
+zsh-users/zsh-syntax-highlighting
+docker/cli path:contrib/completion/zsh kind:fpath
+docker/compose path:contrib/completion/zsh kind:fpath
+robbyrussell/oh-my-zsh path:plugins/nvm
+robbyrussell/oh-my-zsh path:plugins/autojump
+robbyrussell/oh-my-zsh path:plugins/git
+robbyrussell/oh-my-zsh path:plugins/npm
+
+# Theme
+mafredri/zsh-async
+sindresorhus/pure
