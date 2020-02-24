@@ -4,7 +4,8 @@ let g:is_mac = has('macunix')
 
 let g:nvim_config_root = expand('<sfile>:p:h')
 
-let g:config_file_list = ['mappings.vim',
+let g:config_file_list = [ 'variables.vim', 
+    \ 'mappings.vim',
     \ 'plugins.vim',
     \ ]
 
