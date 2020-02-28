@@ -29,7 +29,16 @@ Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': ':CocInstall coc-tsserver coc-python coc-json coc-yaml'}
+
+function! BuildCoc(info)
+    call :CocInstall coc-tsserver
+    call :CocInstall coc-python
+    call :CocInstall coc-json
+    call :CocInstall coc-phpls
+    call :CocInstall coc-prettier
+    call :CocInstall coc-eslint
+endfunction
+Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': function('BuildCoc') }
 
 
 call plug#end()
