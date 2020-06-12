@@ -27,6 +27,7 @@ sudo apt install autojump -y
 
 # neovim
 sudo apt install neovim -y
+vim +PlugInstall +qall > /dev/null # install plugins
 
 ###########################
 # Environment Managers
