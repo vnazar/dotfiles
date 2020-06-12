@@ -1,22 +1,24 @@
 #!/bin/bash
 
 PROMPT='[bootstrap]'
-
 # TODO : Delete symlinks to deleted files
 # Is this where rsync shines?
 # TODO - add support for -f and --force
+
+DIR=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
+USER_HOME=$HOME
 link () {
 	echo "$PROMPT This utility will symlink the files in this repo to the home directory"
 	echo "$PROMPT Proceed? (y/n)"
 	read resp
 	# TODO - regex here?
 	if [ "$resp" = 'y' -o "$resp" = 'Y' ] ; then
-		for file in $( ls -A | grep -vE '\.exclude*|\.git$|\.gitignore|.*.md|.config' ) ; do
-			ln -svf "$PWD/$file" "$HOME"
+		for file in $( ls -A $DIR | grep -vE '\.exclude*|\.git$|\.gitignore|.*.md|.config' ) ; do
+			sudo ln -svf $DIR/$file "$USER_HOME"
 		done
 
-		for file in $( ls -A .config ) ; do
-			ln -svf "$PWD/.config/$file" "$HOME"/.config
+		for file in $( ls -A $DIR/.config ) ; do
+			sudo ln -svf $DIR/.config/$file "$USER_HOME"/.config
 		done
 		# TODO: source files here?
 		echo "$PROMPT Symlinking complete"
@@ -36,7 +38,7 @@ install_tools () {
 			# TODO - regex here?
 			if [ "$resp" = 'y' -o "$resp" = 'Y' ] ; then
 				echo "$PROMPT Installing useful stuff using brew. This may take a while..."
-				sh brew.exclude.sh
+				sh $DIR/brew.exclude.sh
 			else
 				echo "$PROMPT Brew installation cancelled by user"
 			fi
@@ -49,7 +51,7 @@ install_tools () {
 			# TODO - regex here?
 			if [ "$resp" = 'y' -o "$resp" = 'Y' ] ; then
 				echo "$PROMPT Installing useful stuff using apt. This may take a while..."
-				sh `dirname $0`/apt.exclude.sh
+				sh $DIR/apt.exclude.sh
 			else
 				echo "$PROMPT Apt installation cancelled by user"
 			fi
@@ -59,3 +61,4 @@ install_tools () {
 
 link
 install_tools
+zsh && source ~/.zshrc
