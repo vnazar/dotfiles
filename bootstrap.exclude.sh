@@ -50,8 +50,10 @@ install_tools () {
 			read resp
 			# TODO - regex here?
 			if [ "$resp" = 'y' -o "$resp" = 'Y' ] ; then
+				echo "$PROMPT Which package manager? (apt/pacman)"
+				read resp
 				echo "$PROMPT Installing useful stuff using apt. This may take a while..."
-				sh $DIR/apt.exclude.sh
+				sh $DIR/$resp.exclude.sh
 			else
 				echo "$PROMPT Apt installation cancelled by user"
 			fi

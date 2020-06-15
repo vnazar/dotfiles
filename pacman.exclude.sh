@@ -1,32 +1,32 @@
 # update
-sudo apt update -y
+sudo pacman -Syu && sudo pacman -Syy 
 
 ###########################
 # Libraries
 ###########################
 
 # build-essential libssl-dev
-sudo apt install build-essential libssl-dev -y
+sudo pacman -Sy --noconfirm base-devel
 
 ###########################
 # Tools
 ###########################
 # zsh
-sudo apt install zsh
+sudo pacman -Sy --noconfirm zsh
 chsh -s $(which zsh)
 
 # antibody
-curl -sfL git.io/antibody | sudo sh -s - -b /usr/local/bin
+pamac build antibody
 antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
 
 # fzf
-sudo apt install fzf -y
+sudo pacman -Sy --noconfirm fzf
 
 # autojump
-sudo apt install autojump -y
+pacman build autojump
 
 # neovim
-sudo apt install neovim -y
+sudo pacman -Sy --noconfirm neovim
 nvim +PlugInstall +qall > /dev/null # install plugins
 
 ###########################
@@ -34,7 +34,7 @@ nvim +PlugInstall +qall > /dev/null # install plugins
 ###########################
 
 # nvm
-wget -O - https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+pamac build nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
@@ -51,4 +51,4 @@ nvm install --lts --latest-npm
 ###########################
 # Remove Packages
 ###########################
-sudo apt autoremove
+sudo pacman -R

@@ -50,6 +50,12 @@ export HISTFILESIZE=100000
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ###########################
+# autojump 
+###########################
+# TODO: Execute only with pamac installation. https://aur.archlinux.org/packages/autojump/
+[[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
+
+###########################
 # aliases/binds
 ###########################
 if [[ "$(uname)" == "Linux" ]]; then
