@@ -34,12 +34,10 @@ nvim +PlugInstall +qall > /dev/null # install plugins
 ###########################
 
 # nvm
-wget -O - https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+wget -O - https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
-# miniconda
-wget -O ~/miniconda.sh https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh && bash ~/miniconda.sh && rm ~/miniconda.sh
 
 ###########################
 # Languages
