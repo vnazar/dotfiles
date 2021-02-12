@@ -15,10 +15,6 @@ sudo apt install build-essential libssl-dev -y
 sudo apt install zsh
 chsh -s $(which zsh)
 
-# antibody
-curl -sfL git.io/antibody | sudo sh -s - -b /usr/local/bin
-antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
-
 # fzf
 sudo apt install fzf -y
 
@@ -43,8 +39,6 @@ export NVM_DIR="$HOME/.nvm"
 # Languages
 ###########################
 
-# nodejs & npm
-nvm install --lts --latest-npm
 
 ###########################
 # Remove Packages

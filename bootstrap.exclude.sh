@@ -6,7 +6,6 @@ PROMPT='[bootstrap]'
 # TODO - add support for -f and --force
 
 DIR=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
-echo $DIR
 USER_HOME=$HOME
 link () {
 	echo "$PROMPT This utility will symlink the files in this repo to the home directory"
@@ -50,7 +49,6 @@ install_tools () {
 			echo "$PROMPT Proceed? (y/n)"
 			read resp
 			# TODO - regex here?
-			echo $DIR
 			if [ "$resp" = 'y' -o "$resp" = 'Y' ] ; then
 				echo "$PROMPT Which package manager? (apt/pacman)"
 				read resp

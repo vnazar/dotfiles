@@ -43,7 +43,7 @@ zinit ice wait'0a' lucid blockf atpull'zinit creinstall -q .'
 zinit light zsh-users/zsh-completions
 
 # SYNTAX HIGHLIGHTING
-zinit ice wait'0a' lucid atinit"zpcompinit;zpcdreplay"
+zinit ice wait'0b' lucid atinit"zpcompinit;zpcdreplay"
 zinit light zdharma/fast-syntax-highlighting
 
 # AUTOJUMP
@@ -53,6 +53,10 @@ zinit snippet OMZP::autojump
 # GIT
 zinit ice wait'0b' lucid
 zinit snippet OMZP::git
+
+# NVM
+zinit ice wait'1' lucid
+zinit light lukechilds/zsh-nvm
 
 
 ######################
@@ -75,12 +79,6 @@ case `uname` in
     export XDG_CACHE_HOME=$HOME/.cache
   ;;
 esac
-
-######################
-# nvm
-######################
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 ######################
 # Aliases/Binds
