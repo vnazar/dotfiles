@@ -35,10 +35,16 @@ zinit ice wait'0a' lucid atload"_zsh_autosuggest_start"
 zinit light zsh-users/zsh-autosuggestions
 
 # ZSH HISTORY SUBSTRING SEARCH
-zinit ice wait'0a' lucid atload="bindkey '\eOA' history-substring-search-up;bindkey '\eOB' history-substring-search-down"
+zinit ice wait'0a' lucid atload="bindkey '\eOA' history-substring-search-up;\
+				bindkey '\eOB' history-substring-search-down;\
+				HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=green,fg=white,bold';\
+				HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=red,fg=white,bold'"
 zinit light zsh-users/zsh-history-substring-search 
 
-# SZH COMPLETIONS
+# ZSH COMPLETIONS
+zstyle ':completion:*' menu select # select completions with arrow keys
+zstyle ':completion:*' group-name '' # group results by category
+zstyle ':completion:::::' completer _expand _complete _ignored _approximate # enable approximate matches 
 zinit ice wait'0a' lucid blockf atpull'zinit creinstall -q .'
 zinit light zsh-users/zsh-completions
 
@@ -58,10 +64,13 @@ zinit snippet OMZP::git
 zinit ice wait'1' lucid
 zinit light lukechilds/zsh-nvm
 
-
 ######################
 # History
 ######################
+setopt share_history # Share history between tabs
+setopt hist_ignore_all_dups # Remove older duplicate entries from history
+setopt hist_reduce_blanks # Remove superfluous blanks from history items
+setopt inc_append_history # Save history entries as soon as they are entered
 [ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
 HISTSIZE=50000
 SAVEHIST=10000
@@ -71,9 +80,9 @@ SAVEHIST=10000
 ######################
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 case `uname` in
   Darwin)
-    export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
   ;;
   Linux)
     export XDG_CACHE_HOME=$HOME/.cache
