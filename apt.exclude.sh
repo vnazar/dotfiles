@@ -25,10 +25,6 @@ sudo apt install autojump -y
 sudo apt install neovim -y
 nvim +PlugInstall +qall > /dev/null # install plugins
 
-###########################
-# Environment Managers
-###########################
-
 # nvm
 wget -O - https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
@@ -36,11 +32,5 @@ export NVM_DIR="$HOME/.nvm"
 
 
 ###########################
-# Languages
-###########################
-
-
-###########################
-# Remove Packages
-###########################
+# Remove dependencies
 sudo apt autoremove

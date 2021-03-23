@@ -60,6 +60,10 @@ zinit snippet OMZP::autojump
 zinit ice wait'0b' lucid
 zinit snippet OMZP::git
 
+# Docker
+zinit ice wait as"completion" lucid
+zinit snippet OMZP::docker/_docker
+
 # NVM
 zinit ice wait'1' lucid
 zinit light lukechilds/zsh-nvm
