@@ -11,6 +11,9 @@ sudo apt install build-essential libssl-dev -y
 ###########################
 # Tools
 ###########################
+# curl
+sudo apt install curl
+
 # zsh
 sudo apt install zsh
 chsh -s $(which zsh)
