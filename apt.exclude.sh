@@ -24,15 +24,15 @@ sudo apt install fzf -y
 # autojump
 sudo apt install autojump -y
 
-# neovim
-sudo apt install neovim -y
-nvim +PlugInstall +qall > /dev/null # install plugins
-
 # nvm
 wget -O - https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+nvm install --lts # Install last Node LTS version
 
+# neovim
+sudo apt install neovim -y
+nvim +PlugInstall +qall > /dev/null # install plugins
 
 ###########################
 # Remove dependencies
