@@ -1,12 +1,23 @@
-# update
 sudo apt update -y
 
-###########################
-# Libraries
-###########################
-
-# build-essential libssl-dev
-sudo apt install build-essential libssl-dev -y
+sudo apt -y install \
+	make \
+	build-essential \
+	libssl-dev \
+	zlib1g-dev 
+	libbz2-dev 
+	libreadline-dev 
+	libsqlite3-dev \
+	wget \
+	curl \
+	llvm \
+	libncurses5-dev \
+	xz-utils \
+	tk-dev \
+	libxml2-dev \
+	libxmlsec1-dev \
+	libffi-dev \
+	liblzma-dev \
 
 ###########################
 # Tools
@@ -29,6 +40,9 @@ wget -O - https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 nvm install --lts # Install last Node LTS version
+
+# Pyenv
+curl https://pyenv.run | bash
 
 # neovim
 sudo apt install neovim -y
